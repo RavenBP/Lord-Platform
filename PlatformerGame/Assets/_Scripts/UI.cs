@@ -30,6 +30,7 @@ public class UI : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene("GameScene");
+        // NOTE: Score will be reset here
     }
 
     public void CreditsPanel()
@@ -62,5 +63,10 @@ public class UI : MonoBehaviour
             instructionsPanelActive = false;
             mainPanel.SetActive(true);
         }
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenuScene");
     }
 }
