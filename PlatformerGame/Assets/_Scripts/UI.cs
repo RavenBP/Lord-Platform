@@ -15,6 +15,8 @@ public class UI : MonoBehaviour
     bool creditsPanelActive = false;
     bool instructionsPanelActive = false;
 
+    bool gamePaused = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,5 +70,34 @@ public class UI : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("MainMenuScene");
+    }
+
+
+
+    public void PauseGame()
+    {
+        if (gamePaused == false)
+        {
+            Time.timeScale = 0;
+            gamePaused = true;
+        }
+        else if (gamePaused == true)
+        {
+            Time.timeScale = 1;
+            gamePaused = false;
+        }
+    }
+
+    ////////////////////////////////////////// DEBUG
+    
+    public void TriggerGameOver()
+    {
+        SceneManager.LoadScene("GameOverScene");
+    }
+
+
+    public void IncreaseScore()
+    {
+        Score.scoreVal += 10;
     }
 }

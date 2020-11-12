@@ -9,7 +9,7 @@ public class Score : MonoBehaviour
     [SerializeField]
     Text scoreText;
 
-    static int scoreVal = 0;
+    public static int scoreVal = 0;
 
     // Start is called before the first frame update
     void Start()
