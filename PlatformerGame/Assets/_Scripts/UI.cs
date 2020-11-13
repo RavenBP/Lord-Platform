@@ -12,8 +12,6 @@ public class UI : MonoBehaviour
     GameObject creditsPanel;
     [SerializeField]
     GameObject instructionsPanel;
-    [SerializeField]
-    Text livesText;
 
     bool creditsPanelActive = false;
     bool instructionsPanelActive = false;
@@ -29,10 +27,7 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (livesText)
-        {
-            livesText.text = "Lives: " + PlayerController.playerLives;
-        }
+
     }
 
     public void PlayGame()

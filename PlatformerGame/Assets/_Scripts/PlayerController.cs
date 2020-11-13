@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         {
             playerLives--;
 
-            if (playerLives < 1) // Player has no remaining lives/health
+            if (playerLives < 0) // Player has no remaining lives/health
             {
                 SceneManager.LoadScene("GameOverScene");
             }
