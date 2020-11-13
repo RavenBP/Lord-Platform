@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.touchCount > 0)
         {
-            if (screenTouchPosition.x > 0.6f && extraJumps > 0) // Player is attempting to jump in air
+            if (screenTouchPosition.x > xSeperation * 2.0f && screenTouchPosition.y < 0.6f && extraJumps > 0) // Player is attempting to jump in air
             {
                 rigidbody2D.velocity = Vector2.up * jumpForce;
                 extraJumps--;
