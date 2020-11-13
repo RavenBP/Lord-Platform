@@ -104,5 +104,9 @@ public class PlayerController : MonoBehaviour
                 transform.position = new Vector2(-3.0f, 2.0f); // TODO: Replace with checkpoint value...
             }
         }
+        //else if (collision.collider.CompareTag("Coin"))
+        //{
+        //    Debug.Log("Player touched coin");
+        //}
     }
 }
