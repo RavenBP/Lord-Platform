@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class UI : MonoBehaviour
     GameObject creditsPanel;
     [SerializeField]
     GameObject instructionsPanel;
+    [SerializeField]
+    Text livesText;
 
     bool creditsPanelActive = false;
     bool instructionsPanelActive = false;
@@ -26,13 +29,15 @@ public class UI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (livesText)
+        {
+            livesText.text = "Lives: " + PlayerController.playerLives;
+        }
     }
 
     public void PlayGame()
     {
         SceneManager.LoadScene("GameScene");
-        // NOTE: Score will be reset here
     }
 
     public void CreditsPanel()
@@ -72,8 +77,6 @@ public class UI : MonoBehaviour
         SceneManager.LoadScene("MainMenuScene");
     }
 
-
-
     public void PauseGame()
     {
         if (gamePaused == false)
@@ -95,9 +98,13 @@ public class UI : MonoBehaviour
         SceneManager.LoadScene("GameOverScene");
     }
 
-
     public void IncreaseScore()
     {
         Score.scoreVal += 10;
+    }
+
+    public void DecreaseLives()
+    {
+        PlayerController.playerLives--;
     }
 }
