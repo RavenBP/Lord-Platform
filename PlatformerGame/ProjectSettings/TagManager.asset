@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bounds
   - Coin
+  - ExtraLife
   layers:
   - Default
   - TransparentFX
