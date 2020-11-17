@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPanel: {fileID: 1621401227}
-  creditsPanel: {fileID: 1135876793}
+  secondaryPanel: {fileID: 1135876793}
   instructionsPanel: {fileID: 2045856765}
 --- !u!1 &810385509
 GameObject:

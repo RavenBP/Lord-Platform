@@ -9,7 +9,7 @@ public class UI : MonoBehaviour
     [SerializeField]
     GameObject mainPanel;
     [SerializeField]
-    GameObject creditsPanel;
+    GameObject secondaryPanel;
     [SerializeField]
     GameObject instructionsPanel;
 
@@ -40,12 +40,12 @@ public class UI : MonoBehaviour
         if (creditsPanelActive == false)
         {
             mainPanel.SetActive(false);
-            creditsPanel.SetActive(true);
+            secondaryPanel.SetActive(true);
             creditsPanelActive = true;
         }
         else if (creditsPanelActive == true)
         {
-            creditsPanel.SetActive(false);
+            secondaryPanel.SetActive(false);
             creditsPanelActive = false;
             mainPanel.SetActive(true);
         }
@@ -70,6 +70,7 @@ public class UI : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene("MainMenuScene");
+        Time.timeScale = 1; // Ensure time is unpaused if pressed from PausePanel
     }
 
     public void PauseGame()
@@ -77,11 +78,15 @@ public class UI : MonoBehaviour
         if (gamePaused == false)
         {
             Time.timeScale = 0;
+            mainPanel.SetActive(false);
+            secondaryPanel.SetActive(true);
             gamePaused = true;
         }
         else if (gamePaused == true)
         {
             Time.timeScale = 1;
+            secondaryPanel.SetActive(false);
+            mainPanel.SetActive(true);
             gamePaused = false;
         }
     }
