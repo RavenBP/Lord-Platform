@@ -13,15 +13,29 @@ public class UI : MonoBehaviour
     [SerializeField]
     GameObject instructionsPanel;
 
+    [SerializeField]
+    GameObject leftPanel;
+    [SerializeField]
+    GameObject middlePanel;
+    [SerializeField]
+    GameObject rightPanel;
+
     bool creditsPanelActive = false;
     bool instructionsPanelActive = false;
 
     bool gamePaused = false;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        if (leftPanel && middlePanel && rightPanel)
+        {
+            leftPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 3, Screen.height);
+            middlePanel.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 3, Screen.height);
+            rightPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 3, Screen.height / 2);
+        }
     }
 
     // Update is called once per frame
