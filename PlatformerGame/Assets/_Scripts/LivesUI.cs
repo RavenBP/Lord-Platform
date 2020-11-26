@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LivesUI : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class LivesUI : MonoBehaviour
     {
         switch (PlayerController.playerLives) // Update LivesUI 
         {
+            case -1:
+                SceneManager.LoadScene("GameOverScene");
+                break;
             case 0:
                 heart1.color = new Color(0, 0, 0, 255);
                 break;
