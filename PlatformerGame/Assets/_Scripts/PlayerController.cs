@@ -24,12 +24,18 @@ public class PlayerController : MonoBehaviour
     public LayerMask ground;
 
     private bool isGrounded;
+    private bool soundPlaying;
 
     private int extraJumps;
+
+    [Header("Audio")]
+    [SerializeField]
+    AudioClip[] audioClips;
 
     private Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
     private Animator animator;
+    private AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +43,7 @@ public class PlayerController : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
         playerLives = 3; // Reset player lives
         extraJumps = extraJumpsValue;
@@ -64,11 +71,15 @@ public class PlayerController : MonoBehaviour
             {
                 rigidbody2D.velocity = Vector2.up * jumpForce;
                 extraJumps--;
+
+                // NOTE: Because this is here, it will likely be played more than intended...
+                audioSource.clip = audioClips[0];
+                audioSource.Play();
             }
-            else if (screenTouchPosition.x > 0.6f && extraJumps == 0 && isGrounded == true) // Player is attempting to jump
-            {
-                rigidbody2D.velocity = Vector2.up * jumpForce;
-            }
+            //else if (screenTouchPosition.x > 0.6f && extraJumps == 0 && isGrounded == true) // Player is attempting to jump
+            //{
+            //    rigidbody2D.velocity = Vector2.up * jumpForce;
+            //}
         }
     }
 
@@ -111,6 +122,9 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Bounds"))
         {
             playerLives--;
+
+            audioSource.clip = audioClips[1];
+            audioSource.Play();
 
             if (playerLives < 0) // Player has no remaining lives/health
             {
