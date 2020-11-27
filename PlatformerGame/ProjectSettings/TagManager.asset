@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - ExtraLife
   - Platform
+  - FinishLine
   layers:
   - Default
   - TransparentFX

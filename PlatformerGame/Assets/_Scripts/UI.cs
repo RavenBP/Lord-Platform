@@ -36,6 +36,19 @@ public class UI : MonoBehaviour
             middlePanel.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 3, Screen.height);
             rightPanel.GetComponent<RectTransform>().sizeDelta = new Vector2(Screen.width / 3, Screen.height / 2);
         }
+
+        // Display appropriate panel for finished game
+        if (SceneManager.GetActiveScene().name == "GameOverScene")
+        {
+            if (PlayerController.completedLevel == true) // Player completed the level
+            {
+                secondaryPanel.SetActive(true); // "Congratulations"
+            }
+            else // Player lost all of their lives
+            {
+                mainPanel.SetActive(true); // "Game Over"
+            }
+        }
     }
 
     // Update is called once per frame

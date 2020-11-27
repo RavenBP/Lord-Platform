@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     float speed = 5.0f;
 
     public static int playerLives;
+    public static bool completedLevel = false;
 
     float xSeperation = 0.3f; // NOTE: A ySperation will likely need to be made in order to prevent the player from jumping when pressing pause button...
 
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         playerLives = 3; // Reset player lives
         extraJumps = extraJumpsValue;
+        completedLevel = false; // Reset player lives upon initialization of player
     }
 
     // Update is called once per frame
@@ -103,6 +105,16 @@ public class PlayerController : MonoBehaviour
             {
                 transform.position = new Vector2(-3.0f, 2.0f); // TODO: Replace with checkpoint value...
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("FinishLine"))
+        {
+            completedLevel = true;
+            SceneManager.LoadScene("GameOverScene");
+            Debug.Log("The player completed the level");
         }
     }
 }
