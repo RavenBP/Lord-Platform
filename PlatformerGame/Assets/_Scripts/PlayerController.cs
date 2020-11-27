@@ -11,12 +11,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     SpriteRenderer spriteRenderer;
     [SerializeField]
+    Animator animator;
+    [SerializeField]
     float speed = 5.0f;
 
     public static int playerLives;
     public static bool completedLevel = false;
 
-    float xSeperation = 0.3f; // NOTE: A ySperation will likely need to be made in order to prevent the player from jumping when pressing pause button...
+    float xSeperation = 0.3f;
 
     Vector2 screenTouchPosition;
 
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded == true)
         {
             extraJumps = extraJumpsValue; // Reset jumps
+            animator.SetBool("InAir", false);
         }
 
         screenTouchPosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -55,10 +58,12 @@ public class PlayerController : MonoBehaviour
             {
                 rigidbody2D.velocity = Vector2.up * jumpForce;
                 extraJumps--;
+                animator.SetBool("InAir", true);
             }
             else if (screenTouchPosition.x > 0.6f && extraJumps == 0 && isGrounded == true) // Player is attempting to jump
             {
                 rigidbody2D.velocity = Vector2.up * jumpForce;
+                animator.SetBool("InAir", true);
             }
         }
     }
@@ -78,16 +83,22 @@ public class PlayerController : MonoBehaviour
             {
                 rigidbody2D.velocity = new Vector2(1.0f * speed, rigidbody2D.velocity.y);
                 spriteRenderer.flipX = false;
+
+                animator.SetFloat("Speed", 1);
             }
             else if (screenTouchPosition.x < xSeperation) // Player attempting to move left
             {
                 rigidbody2D.velocity = new Vector2(-1.0f * speed, rigidbody2D.velocity.y);
                 spriteRenderer.flipX = true;
+
+                animator.SetFloat("Speed", 1);
             }
         }
         else // Player does not want to move
         {
             rigidbody2D.velocity = new Vector2(0.0f, rigidbody2D.velocity.y); // Stop velocity on x axis
+
+            animator.SetFloat("Speed", 0);
         }
     }
 
