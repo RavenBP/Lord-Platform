@@ -7,12 +7,6 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    Rigidbody2D rigidbody2D;
-    [SerializeField]
-    SpriteRenderer spriteRenderer;
-    [SerializeField]
-    Animator animator;
-    [SerializeField]
     float speed = 5.0f;
 
     public static int playerLives;
@@ -22,20 +16,28 @@ public class PlayerController : MonoBehaviour
 
     Vector2 screenTouchPosition;
 
-    // Jumping
+    [Header("Jumping")]
     public float jumpForce;
-
-    private bool isGrounded;
+    public int extraJumpsValue;
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask ground;
 
+    private bool isGrounded;
+
     private int extraJumps;
-    public int extraJumpsValue;
+
+    private Rigidbody2D rigidbody2D;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+
         playerLives = 3; // Reset player lives
         extraJumps = extraJumpsValue;
         completedLevel = false; // Reset player lives upon initialization of player
@@ -49,6 +51,10 @@ public class PlayerController : MonoBehaviour
             extraJumps = extraJumpsValue; // Reset jumps
             animator.SetBool("InAir", false);
         }
+        else if (isGrounded == false)
+        {
+            animator.SetBool("InAir", true);
+        }
 
         screenTouchPosition = Camera.main.ScreenToViewportPoint(Input.mousePosition);
 
@@ -58,12 +64,10 @@ public class PlayerController : MonoBehaviour
             {
                 rigidbody2D.velocity = Vector2.up * jumpForce;
                 extraJumps--;
-                animator.SetBool("InAir", true);
             }
             else if (screenTouchPosition.x > 0.6f && extraJumps == 0 && isGrounded == true) // Player is attempting to jump
             {
                 rigidbody2D.velocity = Vector2.up * jumpForce;
-                animator.SetBool("InAir", true);
             }
         }
     }
