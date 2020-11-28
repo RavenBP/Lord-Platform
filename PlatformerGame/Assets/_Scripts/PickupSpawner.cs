@@ -17,12 +17,12 @@ public class PickupSpawner : MonoBehaviour
         // Spawn random pickup
         if (randomNum <= 70) // Spawn coin
         {
-            Instantiate(coin, transform);
+            Instantiate(coin, transform.position, transform.rotation);
             Debug.Log("Coin spawned");
         }
         else if (randomNum >= 71 && randomNum <= 90) // Spawn extra life
         {
-            Instantiate(extraLife, this.transform);
+            Instantiate(extraLife, transform.position, transform.rotation);
             Debug.Log("Life spawned");
         }
         else // Spawn nothing
