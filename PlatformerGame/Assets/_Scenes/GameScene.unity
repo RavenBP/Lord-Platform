@@ -180,7 +180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1783500732564760632, guid: d530804d5b80882489b81964e6619fdd, type: 3}
       propertyPath: m_Name
-      value: FallingPlatform (7)
+      value: TogglePlatform (7)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d530804d5b80882489b81964e6619fdd, type: 3}
@@ -905,7 +905,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1783500732564760632, guid: d530804d5b80882489b81964e6619fdd, type: 3}
       propertyPath: m_Name
-      value: FallingPlatform (3)
+      value: TogglePlatform (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d530804d5b80882489b81964e6619fdd, type: 3}
@@ -1483,7 +1483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1783500732564760632, guid: d530804d5b80882489b81964e6619fdd, type: 3}
       propertyPath: m_Name
-      value: FallingPlatform (1)
+      value: TogglePlatform (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d530804d5b80882489b81964e6619fdd, type: 3}
@@ -40487,7 +40487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1783500732564760632, guid: d530804d5b80882489b81964e6619fdd, type: 3}
       propertyPath: m_Name
-      value: FallingPlatform (2)
+      value: TogglePlatform (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d530804d5b80882489b81964e6619fdd, type: 3}
@@ -42705,7 +42705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1783500732564760632, guid: d530804d5b80882489b81964e6619fdd, type: 3}
       propertyPath: m_Name
-      value: FallingPlatform (5)
+      value: TogglePlatform (5)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d530804d5b80882489b81964e6619fdd, type: 3}
@@ -42819,7 +42819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1783500732564760632, guid: d530804d5b80882489b81964e6619fdd, type: 3}
       propertyPath: m_Name
-      value: FallingPlatform (8)
+      value: TogglePlatform (8)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d530804d5b80882489b81964e6619fdd, type: 3}
@@ -46986,7 +46986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1783500732564760632, guid: d530804d5b80882489b81964e6619fdd, type: 3}
       propertyPath: m_Name
-      value: FallingPlatform (4)
+      value: TogglePlatform (4)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d530804d5b80882489b81964e6619fdd, type: 3}
@@ -47464,6 +47464,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1783500732564760612, guid: d530804d5b80882489b81964e6619fdd, type: 3}
+      propertyPath: audioClips.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1783500732564760613, guid: d530804d5b80882489b81964e6619fdd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 70.56
@@ -47510,7 +47514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1783500732564760632, guid: d530804d5b80882489b81964e6619fdd, type: 3}
       propertyPath: m_Name
-      value: FallingPlatform
+      value: TogglePlatform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d530804d5b80882489b81964e6619fdd, type: 3}

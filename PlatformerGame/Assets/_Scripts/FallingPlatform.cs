@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class FallingPlatform : MonoBehaviour
 {
-    public float fallDelay;
+    [SerializeField]
+    float toggleDelay;
+
+    [Header("Audio")]
+    [SerializeField]
+    AudioSource audioSource;
+    [SerializeField]
+    AudioClip[] audioClips;
 
     bool canContinue;
 
@@ -28,29 +35,35 @@ public class FallingPlatform : MonoBehaviour
     IEnumerator Disable()
     {
         canContinue = false;
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(toggleDelay);
 
         GetComponent<BoxCollider2D>().enabled = false;
         GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 1);
 
-        yield return new WaitForSeconds(2);
+        audioSource.clip = audioClips[0];
+        audioSource.Play();
+
+        yield return new WaitForSeconds(toggleDelay);
 
         GetComponent<BoxCollider2D>().enabled = true;
         GetComponent<SpriteRenderer>().color = new Vector4(0, 1, 0, 1);
+
+        audioSource.clip = audioClips[1];
+        audioSource.Play();
 
         canContinue = true;
         Debug.Log("Disabled!");
     }
 
-    IEnumerator Reset()
-    {
-        canContinue = false;
-        yield return new WaitForSeconds(2);
+    //IEnumerator Reset()
+    //{
+    //    canContinue = false;
+    //    yield return new WaitForSeconds(2);
 
-        GetComponent<BoxCollider2D>().enabled = true;
-        GetComponent<SpriteRenderer>().color = new Vector4(0, 1, 0, 1);
-        canContinue = true;
+    //    GetComponent<BoxCollider2D>().enabled = true;
+    //    GetComponent<SpriteRenderer>().color = new Vector4(0, 1, 0, 1);
+    //    canContinue = true;
 
-        Debug.Log("Re-enabled!");
-    }
+    //    Debug.Log("Re-enabled!");
+    //}
 }
