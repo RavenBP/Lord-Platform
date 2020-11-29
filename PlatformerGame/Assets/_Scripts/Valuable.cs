@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// File Name: Valuable.cs
+// Author: Raven Powless - 101173103
+// Last Modified: 11/28/20
+// Description: Script for coin pickup.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

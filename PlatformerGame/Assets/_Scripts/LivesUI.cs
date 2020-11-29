@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// File Name: LivesUI.cs
+// Author: Raven Powless - 101173103
+// Last Modified: 11/28/20
+// Description: Script that controls HUD element for lives.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;

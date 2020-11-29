@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// File Name: ExtraLife.cs
+// Author: Raven Powless - 101173103
+// Last Modified: 11/28/20
+// Description: Script for extra life pickup.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// File Name: Score.cs
+// Author: Raven Powless - 101173103
+// Last Modified: 11/28/20
+// Description: Script that controls HUD element for score.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

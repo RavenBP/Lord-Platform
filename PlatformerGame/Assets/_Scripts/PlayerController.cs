@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// File Name: PlayerController.cs
+// Author: Raven Powless - 101173103
+// Last Modified: 11/28/20
+// Description: Script that takes in input from the player and allows them to move their avatar within the game.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;

@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// File Name: PickupSpawner.cs
+// Author: Raven Powless - 101173103
+// Last Modified: 11/28/20
+// Description: Script that controls which pickup to spawn at a specified location.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

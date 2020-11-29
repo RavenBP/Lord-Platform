@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// File Name: FallingPlatform.cs
+// Author: Raven Powless - 101173103
+// Last Modified: 11/28/20
+// Description: Script that controls "TogglePlatform" prefab. This platform will enable and disable itself upon contact with the player.
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

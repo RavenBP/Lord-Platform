@@ -1,4 +1,9 @@
-﻿using System.Collections;
+﻿// File Name: UI.cs
+// Author: Raven Powless - 101173103
+// Last Modified: 11/28/20
+// Description: Script that holds most functionality for UI elements within the game. 
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
