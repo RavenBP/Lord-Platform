@@ -1,6 +1,6 @@
 ﻿// File Name: PlayerController.cs
 // Author: Raven Powless - 101173103
-// Last Modified: 11/28/20
+// Last Modified: 11/29/20
 // Description: Script that takes in input from the player and allows them to move their avatar within the game.
 
 using System.Collections;
@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     public LayerMask ground;
 
     private bool isGrounded;
-    private bool soundPlaying;
 
     private int extraJumps;
 
@@ -81,10 +80,6 @@ public class PlayerController : MonoBehaviour
                 audioSource.clip = audioClips[0];
                 audioSource.Play();
             }
-            //else if (screenTouchPosition.x > 0.6f && extraJumps == 0 && isGrounded == true) // Player is attempting to jump
-            //{
-            //    rigidbody2D.velocity = Vector2.up * jumpForce;
-            //}
         }
     }
 
@@ -128,6 +123,7 @@ public class PlayerController : MonoBehaviour
         {
             playerLives--;
 
+            // Play water crashing sound
             audioSource.clip = audioClips[1];
             audioSource.Play();
 
@@ -144,11 +140,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("FinishLine"))
+        if (collision.CompareTag("FinishLine")) // Player reached end of level
         {
-            completedLevel = true;
+            Score.scoreVal += 100; // Give player a bonus
+
+            completedLevel = true; // Set appropriate GameOverScene
             SceneManager.LoadScene("GameOverScene");
-            Debug.Log("The player completed the level");
         }
     }
 }

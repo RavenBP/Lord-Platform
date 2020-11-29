@@ -1,6 +1,6 @@
 ﻿// File Name: ExtraLife.cs
 // Author: Raven Powless - 101173103
-// Last Modified: 11/28/20
+// Last Modified: 11/29/20
 // Description: Script for extra life pickup.
 
 using System.Collections;
@@ -21,13 +21,13 @@ public class ExtraLife : MonoBehaviour
 
     IEnumerator Disable()
     {
-        Debug.Log("Heart Disabled");
+        //Debug.Log("Heart Disabled");
         this.GetComponent<SpriteRenderer>().color = Color.clear;
         this.GetComponent<BoxCollider2D>().enabled = false;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1); // Short wait time to make sure audio is played through
 
-        Debug.Log("Heart Destroyed");
+        //Debug.Log("Heart Destroyed");
         Destroy(heart);
     }
 
@@ -40,13 +40,6 @@ public class ExtraLife : MonoBehaviour
                 PlayerController.playerLives++;
                 audioSource.Play();
                 StartCoroutine(Disable());
-
-                //Destroy(heart);
-            }
-            else
-            {
-                Debug.Log("Player has maximum lives");
-                // Play a sound?
             }
         }
     }

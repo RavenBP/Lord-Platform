@@ -1,6 +1,6 @@
 ﻿// File Name: Score.cs
 // Author: Raven Powless - 101173103
-// Last Modified: 11/28/20
+// Last Modified: 11/29/20
 // Description: Script that controls HUD element for score.
 
 using System.Collections;
@@ -19,6 +19,7 @@ public class Score : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Reset score
         if (SceneManager.GetActiveScene().name == "GameScene")
         {
             scoreVal = 0;

@@ -1,6 +1,6 @@
 ﻿// File Name: PickupSpawner.cs
 // Author: Raven Powless - 101173103
-// Last Modified: 11/28/20
+// Last Modified: 11/29/20
 // Description: Script that controls which pickup to spawn at a specified location.
 
 using System.Collections;
@@ -23,16 +23,16 @@ public class PickupSpawner : MonoBehaviour
         if (randomNum <= 70) // Spawn coin
         {
             Instantiate(coin, transform.position, transform.rotation);
-            Debug.Log("Coin spawned");
+            //Debug.Log("Coin spawned");
         }
         else if (randomNum >= 71 && randomNum <= 90) // Spawn extra life
         {
             Instantiate(extraLife, transform.position, transform.rotation);
-            Debug.Log("Life spawned");
+            //Debug.Log("Life spawned");
         }
         else // Spawn nothing
         {
-            Debug.Log("Nothing was spawned");
+            //Debug.Log("Nothing was spawned");
         }
     }
 }

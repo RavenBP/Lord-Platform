@@ -1,6 +1,6 @@
 ﻿// File Name: Valuable.cs
 // Author: Raven Powless - 101173103
-// Last Modified: 11/28/20
+// Last Modified: 11/29/20
 // Description: Script for coin pickup.
 
 using System.Collections;
@@ -28,13 +28,13 @@ public class Valuable : MonoBehaviour
 
     IEnumerator Disable()
     {
-        Debug.Log("Coin disabled");
+        //Debug.Log("Coin disabled");
         this.GetComponent<SpriteRenderer>().color = Color.clear;
         this.GetComponent<BoxCollider2D>().enabled = false;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1); // Short wait time to make sure audio is played through
 
-        Debug.Log("Coin Destroyed");
+        //Debug.Log("Coin Destroyed");
         Destroy(coin);
     }
 

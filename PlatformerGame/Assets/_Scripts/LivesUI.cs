@@ -1,6 +1,6 @@
 ﻿// File Name: LivesUI.cs
 // Author: Raven Powless - 101173103
-// Last Modified: 11/28/20
+// Last Modified: 11/29/20
 // Description: Script that controls HUD element for lives.
 
 using System.Collections;
@@ -23,22 +23,22 @@ public class LivesUI : MonoBehaviour
     {
         switch (PlayerController.playerLives) // Update LivesUI 
         {
-            case -1:
+            case -1: // Player is out of lives
                 SceneManager.LoadScene("GameOverScene");
                 break;
-            case 0:
+            case 0: // Player has no lives remaining
                 heart1.color = new Color(0, 0, 0, 255);
                 break;
-            case 1:
+            case 1: // Player has 1 life
                 heart1.color = new Color(255, 255, 255, 255);
                 heart2.color = new Color(0, 0, 0, 255);
                 break;
-            case 2:
+            case 2: // Player has 2 lives
                 heart1.color = new Color(255, 255, 255, 255);
                 heart2.color = new Color(255, 255, 255, 255);
                 heart3.color = new Color(0, 0, 0, 255);
                 break;
-            case 3:
+            case 3: // Player has 3 lives
                 heart1.color = new Color(255, 255, 255, 255);
                 heart2.color = new Color(255, 255, 255, 255);
                 heart3.color = new Color(255, 255, 255, 255);

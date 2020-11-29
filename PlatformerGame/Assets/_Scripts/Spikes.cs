@@ -1,6 +1,6 @@
 ﻿// File Name: Spikes.cs
 // Author: Raven Powless - 101173103
-// Last Modified: 11/28/20
+// Last Modified: 11/29/20
 // Description: Script that controls behaviour for spike hazard
 
 using System.Collections;
@@ -14,7 +14,7 @@ public class Spikes : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player")) // Spikes are making contact with player
         {
             PlayerController.playerLives--;
             audioSource.Play();

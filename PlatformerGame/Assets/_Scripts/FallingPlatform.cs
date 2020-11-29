@@ -1,6 +1,6 @@
 ﻿// File Name: FallingPlatform.cs
 // Author: Raven Powless - 101173103
-// Last Modified: 11/28/20
+// Last Modified: 11/29/20
 // Description: Script that controls "TogglePlatform" prefab. This platform will enable and disable itself upon contact with the player.
 
 using System.Collections;
@@ -28,9 +28,9 @@ public class FallingPlatform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player")) // Platform is making contact with player
         {
-            if (canContinue == true)
+            if (canContinue == true) // Platform isn't performing triggered action
             {
                 StartCoroutine(Disable());
             }
@@ -39,36 +39,25 @@ public class FallingPlatform : MonoBehaviour
 
     IEnumerator Disable()
     {
-        canContinue = false;
+        canContinue = false; // Ensure coroutine will not be called multiple times
         yield return new WaitForSeconds(toggleDelay);
 
-        GetComponent<BoxCollider2D>().enabled = false;
-        GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 1);
+        GetComponent<BoxCollider2D>().enabled = false; // Disable collision
+        GetComponent<SpriteRenderer>().color = new Vector4(1, 0, 0, 1); // Change colour
 
+        // Play sound
         audioSource.clip = audioClips[0];
         audioSource.Play();
 
         yield return new WaitForSeconds(toggleDelay);
 
-        GetComponent<BoxCollider2D>().enabled = true;
-        GetComponent<SpriteRenderer>().color = new Vector4(0, 1, 0, 1);
+        GetComponent<BoxCollider2D>().enabled = true; // Enable collision
+        GetComponent<SpriteRenderer>().color = new Vector4(0, 1, 0, 1); // Chage colour
 
+        // Play sound
         audioSource.clip = audioClips[1];
         audioSource.Play();
 
-        canContinue = true;
-        Debug.Log("Disabled!");
+        canContinue = true; // Now that platform has been re-enabled, it can now be triggered again
     }
-
-    //IEnumerator Reset()
-    //{
-    //    canContinue = false;
-    //    yield return new WaitForSeconds(2);
-
-    //    GetComponent<BoxCollider2D>().enabled = true;
-    //    GetComponent<SpriteRenderer>().color = new Vector4(0, 1, 0, 1);
-    //    canContinue = true;
-
-    //    Debug.Log("Re-enabled!");
-    //}
 }

@@ -1,6 +1,6 @@
 ﻿// File Name: Platform.cs
 // Author: Raven Powless - 101173103
-// Last Modified: 11/28/20
+// Last Modified: 11/29/20
 // Description: Script that controls the vertical moving platform.
 
 using System.Collections;
@@ -23,7 +23,8 @@ public class Platform : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (transform.position == pos1.position)
+        // If platform reaches one of it's specified positions, make it go towards the other one
+        if (transform.position == pos1.position) 
         {
             nextPos = pos2.position;
         }
@@ -38,12 +39,5 @@ public class Platform : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.DrawLine(pos1.position, pos2.position);
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
